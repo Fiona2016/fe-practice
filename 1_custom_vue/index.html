@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mock vue</title>
+</head>
+<body>
+  <div id="app">
+    {{message}}
+  </div>
+  <div class="app-2">
+    hello {{message}}
+    <p>
+      年龄 <input v-model="age"/>
+      <button @click="handlePlus"> + </button>
+      <button @click="handleMinus"> - </button>
+    </p>
+  </div>
+  <script src="dep.js"></script>
+  <script src="watcher.js"></script>
+  <script src="observer.js"></script>
+  <script src="vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: document.querySelector('#app'),
+      created () {
+        console.log(this.message)
+      },
+      data () {
+        return {
+          message: 'init Message',
+          age: 20
+        }
+      },
+      methods: {
+        handlePlus (v) {
+          this.age++
+        },
+        handleMinus () {
+          this.age--
+        }
+      },
+      exp: 'message'
+    })
+    setTimeout(_ => {
+      app.data['message'] = '12345'
+    }, 1000)
+  </script>
+</body>
+</html>
