@@ -1,5 +1,3 @@
-
-
 function nodeToFragment (el) {
   const fragment = document.createDocumentFragment()
   const child = el.firstChild
@@ -12,7 +10,7 @@ function nodeToFragment (el) {
 function compileElement (el) {
   const childNodes = el.childNodes
   childNodes.forEach(function(node) {
-    const reg = '\{\{().*)\}\}'
+    const reg = '\{\{(.*)\}\}'
     const text = node.textContent
     if (this.isTextNode && reg.test(text)) {
       this.compileText(node, reg.exec(text)[1])

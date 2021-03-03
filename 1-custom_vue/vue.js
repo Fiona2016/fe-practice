@@ -3,23 +3,25 @@ class Vue {
     // 数据劫持？
     // 为data增加proxy
     // 挂载dom
-    const { data, el, exp } = options
+    const { data } = options 
     this.data = typeof data === 'function' ? data() : data
-    this.el = el
+    // this.el = el
     // fixme 
-    this.exp = exp // exp是一层，需要解析
+    // this.exp = exp // exp是一层，需要解析
+    this.vm = this
 
     Object.keys(data).forEach(function(k){
       this.proxyKeys(k)
     }, this)
 
     observe(this.data)
-    const watcher = new Watcher(this, exp, function (newVal) {
-      el.innerHTML = newVal
-      console.log('cb is calle exp is changed', exp);
-    })
 
-    el.innerHTML = this.data[exp]
+    // const watcher = new Watcher(this, exp, function (newVal) {
+    //   el.innerHTML = newVal
+    //   console.log('cb is calle exp is changed', exp);
+    // })
+
+    // el.innerHTML = this.data[exp]
     // this.bootstrap()
   }
   proxyKeys (k) {
