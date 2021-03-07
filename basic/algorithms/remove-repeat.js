@@ -1,4 +1,4 @@
-/**去掉重复数字 */
+/** 去掉重复数字 */
 function removeRepeat (arr) {
   let slow = 0
   for (let fast = 0; fast < arr.length; fast ++ ) {
