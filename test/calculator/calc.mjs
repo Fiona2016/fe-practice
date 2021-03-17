@@ -73,7 +73,7 @@ const weightMap = {
       }
     } else { // 如果不是operator，插入右节点
       if (cur == 0 && lastOpr.operator === '/') { // 考虑除以0的情况
-        throw new Error ('can not be divided by zero')
+        throw new Error ('分母不能为0')
       }
       lastOpr.right = {
         value: cur
@@ -114,7 +114,7 @@ function calcValue (px, py, rule) {
  */
  export function genTokens (str) {
   if (!/^(\d|\s|\+|\-|\*|\/)+$/.test(str)) {
-    throw new Error('invalid string, Please varify your input')
+    throw new Error('请检查输入，只支持数字与四则运算符"+-*/" ')
   }
   const s = str.replace(/\s/g, '')
   let arr = []

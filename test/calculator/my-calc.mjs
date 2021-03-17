@@ -12,7 +12,7 @@ class myCalculator {
   calc (str) {
     const r = this._calc.run(str)
     // console.log('***r', r)
-    return Number(r).toFixed(this.toFixed)
+    return `${str} = ${Number(r).toFixed(this.toFixed)}`
   }
 }
 export default myCalculator
